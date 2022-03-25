@@ -11,16 +11,16 @@ module Barbies.Internal.ApplicativeB
 
 where
 
-import Barbies.Generics.Applicative(GApplicative(..))
-import Barbies.Internal.FunctorB (FunctorB (..))
+import           Barbies.Generics.Applicative (GApplicative (..))
+import           Barbies.Internal.FunctorB    (FunctorB (..))
 
-import Data.Functor.Const   (Const (..))
-import Data.Functor.Constant(Constant (..))
-import Data.Functor.Product (Product (..))
-import Data.Kind            (Type)
-import Data.Proxy           (Proxy (..))
+import           Data.Functor.Const           (Const (..))
+import           Data.Functor.Constant        (Constant (..))
+import           Data.Functor.Product         (Product (..))
+import           Data.Kind                    (Type)
+import           Data.Proxy                   (Proxy (..))
 
-import Data.Generics.GenericN
+import           Data.Generics.GenericN
 
 -- | A 'FunctorB' with application, providing operations to:
 --

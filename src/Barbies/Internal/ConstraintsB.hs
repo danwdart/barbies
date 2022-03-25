@@ -1,6 +1,6 @@
 {-# LANGUAGE AllowAmbiguousTypes  #-}
-{-# LANGUAGE TypeFamilies         #-}
 {-# LANGUAGE PolyKinds            #-}
+{-# LANGUAGE TypeFamilies         #-}
 {-# LANGUAGE UndecidableInstances #-}
 {-# OPTIONS_GHC -Wno-orphans #-}
 module Barbies.Internal.ConstraintsB
@@ -25,27 +25,22 @@ module Barbies.Internal.ConstraintsB
 
 where
 
-import Barbies.Generics.Constraints
-  ( GConstraints(..)
-  , GAll
-  , Self
-  , Other
-  , SelfOrOther
-  , X
-  )
-import Barbies.Internal.ApplicativeB(ApplicativeB(..))
-import Barbies.Internal.Dicts(ClassF, Dict (..), requiringDict)
-import Barbies.Internal.FunctorB(FunctorB (..))
-import Barbies.Internal.TraversableB(TraversableB (..))
+import           Barbies.Generics.Constraints  (GAll, GConstraints (..), Other,
+                                                Self, SelfOrOther, X)
+import           Barbies.Internal.ApplicativeB (ApplicativeB (..))
+import           Barbies.Internal.Dicts        (ClassF, Dict (..),
+                                                requiringDict)
+import           Barbies.Internal.FunctorB     (FunctorB (..))
+import           Barbies.Internal.TraversableB (TraversableB (..))
 
-import Data.Functor.Compose (Compose (..))
-import Data.Functor.Const   (Const (..))
-import Data.Functor.Product (Product (..))
-import Data.Functor.Sum     (Sum (..))
-import Data.Kind            (Constraint, Type)
-import Data.Proxy           (Proxy (..))
+import           Data.Functor.Compose          (Compose (..))
+import           Data.Functor.Const            (Const (..))
+import           Data.Functor.Product          (Product (..))
+import           Data.Functor.Sum              (Sum (..))
+import           Data.Kind                     (Constraint, Type)
+import           Data.Proxy                    (Proxy (..))
 
-import Data.Generics.GenericN
+import           Data.Generics.GenericN
 
 
 -- | Instances of this class provide means to talk about constraints,

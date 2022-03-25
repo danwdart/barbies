@@ -6,10 +6,10 @@ module Barbies.Generics.Functor
 
 where
 
-import Data.Generics.GenericN
-import Data.Proxy (Proxy (..))
+import           Data.Generics.GenericN
+import           Data.Proxy             (Proxy (..))
 
-import GHC.TypeLits (Nat)
+import           GHC.TypeLits           (Nat)
 
 class GFunctor (n :: Nat) f g repbf repbg where
   gmap :: Proxy n -> (forall a . f a -> g a) -> repbf x -> repbg x
@@ -41,7 +41,7 @@ instance
   )
   => GFunctor n f g (l :*: r) (l' :*: r')
   where
-  gmap pn h (l :*: r) = (gmap pn h l) :*: gmap pn h r
+  gmap pn h (l :*: r) = gmap pn h l :*: gmap pn h r
   {-# INLINE gmap #-}
 
 

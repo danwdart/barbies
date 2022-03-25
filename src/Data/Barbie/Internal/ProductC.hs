@@ -15,19 +15,19 @@ module Data.Barbie.Internal.ProductC
 
 where
 
-import Barbies.Generics.Constraints(GAll, Self, Other, X)
-import Barbies.Internal.ConstraintsB(ConstraintsB(..), GAllRepB)
-import Barbies.Internal.Dicts(Dict (..), requiringDict)
-import Barbies.Internal.FunctorB(FunctorB(bmap))
-import Barbies.Internal.Trivial(Unit(..))
-import Barbies.Internal.Wrappers(Barbie(..))
+import           Barbies.Generics.Constraints  (GAll, Other, Self, X)
+import           Barbies.Internal.ConstraintsB (ConstraintsB (..), GAllRepB)
+import           Barbies.Internal.Dicts        (Dict (..), requiringDict)
+import           Barbies.Internal.FunctorB     (FunctorB (bmap))
+import           Barbies.Internal.Trivial      (Unit (..))
+import           Barbies.Internal.Wrappers     (Barbie (..))
 
-import Data.Barbie.Internal.Product(ProductB(..))
-import Data.Generics.GenericN
+import           Data.Barbie.Internal.Product  (ProductB (..))
+import           Data.Generics.GenericN
 
-import Data.Functor.Product (Product (..))
-import Data.Kind(Type)
-import Data.Proxy(Proxy (..))
+import           Data.Functor.Product          (Product (..))
+import           Data.Kind                     (Type)
+import           Data.Proxy                    (Proxy (..))
 
 class (ConstraintsB b, ProductB b) => ProductBC (b :: (k -> Type) -> Type) where
   bdicts :: AllB c b => b (Dict c)

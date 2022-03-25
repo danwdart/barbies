@@ -6,12 +6,12 @@ module Barbies.Generics.Bare
 
 where
 
-import Data.Functor.Identity (Identity(..))
+import           Data.Functor.Identity  (Identity (..))
 
-import Data.Coerce (Coercible, coerce)
-import Data.Generics.GenericN
-import Data.Proxy (Proxy(..))
-import GHC.TypeLits (Nat)
+import           Data.Coerce            (Coercible, coerce)
+import           Data.Generics.GenericN
+import           Data.Proxy             (Proxy (..))
+import           GHC.TypeLits           (Nat)
 
 
 class GBare (n :: Nat) repbi repbb where
@@ -43,10 +43,10 @@ instance GBare n U1 U1 where
 
 
 instance (GBare n l l', GBare n r r') => GBare n (l :*: r) (l' :*: r') where
-  gstrip pn (l :*: r) = (gstrip pn l) :*: gstrip pn r
+  gstrip pn (l :*: r) = gstrip pn l :*: gstrip pn r
   {-# INLINE gstrip #-}
 
-  gcover pn (l :*: r) = (gcover pn l) :*: gcover pn r
+  gcover pn (l :*: r) = gcover pn l :*: gcover pn r
   {-# INLINE gcover #-}
 
 

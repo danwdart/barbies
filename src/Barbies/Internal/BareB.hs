@@ -1,4 +1,4 @@
-{-# LANGUAGE PolyKinds #-}
+{-# LANGUAGE PolyKinds    #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# OPTIONS_GHC -Wno-orphans #-}
 module Barbies.Internal.BareB
@@ -15,13 +15,13 @@ module Barbies.Internal.BareB
 
 where
 
-import Barbies.Generics.Bare(GBare(..))
-import Barbies.Internal.FunctorB (FunctorB(..))
-import Barbies.Internal.Wear(Bare, Covered, Wear, WearTwo)
-import Data.Functor.Identity (Identity(..))
+import           Barbies.Generics.Bare     (GBare (..))
+import           Barbies.Internal.FunctorB (FunctorB (..))
+import           Barbies.Internal.Wear     (Bare, Covered, Wear, WearTwo)
+import           Data.Functor.Identity     (Identity (..))
 
-import Data.Generics.GenericN
-import Data.Proxy (Proxy(..))
+import           Data.Generics.GenericN
+import           Data.Proxy                (Proxy (..))
 
 
 -- | Class of Barbie-types defined using 'Wear' and can therefore

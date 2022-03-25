@@ -14,20 +14,20 @@ module Barbies.Internal.TraversableB
 
 where
 
-import Barbies.Generics.Traversable(GTraversable(..))
-import Barbies.Internal.FunctorB(FunctorB (..))
-import Barbies.Internal.Writer(execWr, tell)
+import           Barbies.Generics.Traversable (GTraversable (..))
+import           Barbies.Internal.FunctorB    (FunctorB (..))
+import           Barbies.Internal.Writer      (execWr, tell)
 
-import Data.Functor           (void)
-import Data.Functor.Compose   (Compose (..))
-import Data.Functor.Const     (Const (..))
-import Data.Functor.Constant  (Constant (..))
-import Data.Functor.Identity  (Identity (..))
-import Data.Functor.Product   (Product (..))
-import Data.Functor.Sum       (Sum (..))
-import Data.Kind              (Type)
-import Data.Generics.GenericN
-import Data.Proxy             (Proxy (..))
+import           Data.Functor                 (void)
+import           Data.Functor.Compose         (Compose (..))
+import           Data.Functor.Const           (Const (..))
+import           Data.Functor.Constant        (Constant (..))
+import           Data.Functor.Identity        (Identity (..))
+import           Data.Functor.Product         (Product (..))
+import           Data.Functor.Sum             (Sum (..))
+import           Data.Generics.GenericN
+import           Data.Kind                    (Type)
+import           Data.Proxy                   (Proxy (..))
 
 -- | Barbie-types that can be traversed from left to right. Instances should
 --   satisfy the following laws:

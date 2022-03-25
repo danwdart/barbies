@@ -12,16 +12,16 @@ module Data.Barbie.Internal.Product
 
 where
 
-import Barbies.Internal.FunctorB (FunctorB)
-import Barbies.Internal.Trivial (Unit)
-import Barbies.Internal.Wrappers (Barbie(..))
 import qualified Barbies.Internal.ApplicativeB as App
+import           Barbies.Internal.FunctorB     (FunctorB)
+import           Barbies.Internal.Trivial      (Unit)
+import           Barbies.Internal.Wrappers     (Barbie (..))
 
-import Data.Functor.Product (Product (..))
-import Data.Kind            (Type)
-import Data.Proxy           (Proxy (..))
+import           Data.Functor.Product          (Product (..))
+import           Data.Kind                     (Type)
+import           Data.Proxy                    (Proxy (..))
 
-import Data.Generics.GenericN
+import           Data.Generics.GenericN
 
 
 {-# DEPRECATED ProductB "Use ApplicativeB" #-}
@@ -113,7 +113,7 @@ instance
       rprod = gbprod pf pg
   {-# INLINE gbprod #-}
 
-  gbuniq pf _ _ x = (gbuniq pf (Proxy @lf) (Proxy @lfg) x :*: gbuniq pf (Proxy @rf) (Proxy @rfg) x)
+  gbuniq pf _ _ x = gbuniq pf (Proxy @lf) (Proxy @lfg) x :*: gbuniq pf (Proxy @rf) (Proxy @rfg) x
   {-# INLINE gbuniq #-}
 
 -- --------------------------------

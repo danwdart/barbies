@@ -5,8 +5,8 @@ module Barbies.Generics.Traversable
 
 where
 
-import Data.Generics.GenericN
-import Data.Proxy (Proxy (..))
+import           Data.Generics.GenericN
+import           Data.Proxy             (Proxy (..))
 
 class GTraversable n f g repbf repbg where
   gtraverse

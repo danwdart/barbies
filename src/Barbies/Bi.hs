@@ -1,6 +1,6 @@
-{-# LANGUAGE CPP #-}
-{-# LANGUAGE PolyKinds #-}
-{-# LANGUAGE UndecidableInstances #-}
+{-# LANGUAGE CPP                   #-}
+{-# LANGUAGE PolyKinds             #-}
+{-# LANGUAGE UndecidableInstances  #-}
 
 #if __GLASGOW_HASKELL__ >= 806
 
@@ -38,17 +38,17 @@ module Barbies.Bi
   ) where
 
 
-import Barbies.Internal.Trivial (Unit(..))
-import Barbies.Internal.Writer (execWr, tell)
-import Data.Functor.Barbie
-import Data.Functor.Transformer
+import           Barbies.Internal.Trivial (Unit (..))
+import           Barbies.Internal.Writer  (execWr, tell)
+import           Data.Functor.Barbie
+import           Data.Functor.Transformer
 
-import Control.Applicative (Alternative(..))
-import Control.Monad ((>=>))
-import Data.Monoid (Alt(..))
-import Data.Functor (void)
-import Data.Functor.Const (Const(..))
-import Data.Functor.Product (Product(..))
+import           Control.Applicative      (Alternative (..))
+import           Control.Monad            ((>=>))
+import           Data.Functor             (void)
+import           Data.Functor.Const       (Const (..))
+import           Data.Functor.Product     (Product (..))
+import           Data.Monoid              (Alt (..))
 
 -- {{ Functor -----------------------------------------------------------------
 
@@ -176,7 +176,7 @@ btprod
   -> b f' g'
   -> b (f `Product` f') (g `Product` g')
 btprod l r
-  = tmap getAlt $ (tmap oneL l) `bprod` (tmap oneR r)
+  = tmap getAlt $ tmap oneL l `bprod` tmap oneR r
   where
       oneL la = Alt (Pair la empty)
       oneR ga = Alt (Pair empty ga)

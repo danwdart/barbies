@@ -1,7 +1,7 @@
-{-# LANGUAGE CPP #-}
-{-# LANGUAGE PolyKinds #-}
-{-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE UndecidableInstances #-}
+{-# LANGUAGE CPP                   #-}
+{-# LANGUAGE PolyKinds             #-}
+{-# LANGUAGE TypeFamilies          #-}
+{-# LANGUAGE UndecidableInstances  #-}
 
 #if __GLASGOW_HASKELL__ >= 806
 
@@ -20,18 +20,18 @@ module Barbies.Internal.ApplicativeT
 
 where
 
-import Barbies.Generics.Applicative(GApplicative(..))
-import Barbies.Internal.FunctorT (FunctorT (..))
+import           Barbies.Generics.Applicative (GApplicative (..))
+import           Barbies.Internal.FunctorT    (FunctorT (..))
 
-import Control.Applicative (Alternative(..))
-import Data.Functor.Compose (Compose (..))
-import Data.Functor.Product (Product (..))
-import Data.Functor.Reverse (Reverse (..))
-import Data.Functor.Sum (Sum (..))
-import Data.Kind (Type)
-import Data.Proxy (Proxy (..))
+import           Control.Applicative          (Alternative (..))
+import           Data.Functor.Compose         (Compose (..))
+import           Data.Functor.Product         (Product (..))
+import           Data.Functor.Reverse         (Reverse (..))
+import           Data.Functor.Sum             (Sum (..))
+import           Data.Kind                    (Type)
+import           Data.Proxy                   (Proxy (..))
 
-import Data.Generics.GenericN
+import           Data.Generics.GenericN
 
 -- | A 'FunctorT' with application, providing operations to:
 --

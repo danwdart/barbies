@@ -1,5 +1,5 @@
-{-# LANGUAGE PolyKinds    #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE PolyKinds            #-}
+{-# LANGUAGE TypeFamilies         #-}
 {-# LANGUAGE UndecidableInstances #-}
 {-# OPTIONS_GHC -Wno-orphans #-}
 module Barbies.Internal.FunctorT
@@ -10,29 +10,30 @@ module Barbies.Internal.FunctorT
 
 where
 
-import Barbies.Generics.Functor (GFunctor(..))
+import           Barbies.Generics.Functor          (GFunctor (..))
 
-import Control.Applicative.Backwards(Backwards (..))
-import Control.Applicative.Lift(Lift, mapLift )
+import           Control.Applicative.Backwards     (Backwards (..))
+import           Control.Applicative.Lift          (Lift, mapLift)
 
-import Control.Monad.Trans.Except(ExceptT, mapExceptT)
-import Control.Monad.Trans.Identity(IdentityT, mapIdentityT)
-import Control.Monad.Trans.Maybe(MaybeT, mapMaybeT)
-import Control.Monad.Trans.RWS.Lazy as Lazy (RWST, mapRWST)
-import Control.Monad.Trans.RWS.Strict as Strict (RWST, mapRWST)
-import Control.Monad.Trans.Reader(ReaderT, mapReaderT)
-import Control.Monad.Trans.State.Lazy as Lazy (StateT, mapStateT)
-import Control.Monad.Trans.State.Strict as Strict (StateT, mapStateT)
-import Control.Monad.Trans.Writer.Lazy as Lazy (WriterT, mapWriterT)
-import Control.Monad.Trans.Writer.Strict as Strict (WriterT, mapWriterT)
+import           Control.Monad.Trans.Except        (ExceptT, mapExceptT)
+import           Control.Monad.Trans.Identity      (IdentityT, mapIdentityT)
+import           Control.Monad.Trans.Maybe         (MaybeT, mapMaybeT)
+import           Control.Monad.Trans.RWS.Lazy      as Lazy (RWST, mapRWST)
+import           Control.Monad.Trans.RWS.Strict    as Strict (RWST, mapRWST)
+import           Control.Monad.Trans.Reader        (ReaderT, mapReaderT)
+import           Control.Monad.Trans.State.Lazy    as Lazy (StateT, mapStateT)
+import           Control.Monad.Trans.State.Strict  as Strict (StateT, mapStateT)
+import           Control.Monad.Trans.Writer.Lazy   as Lazy (WriterT, mapWriterT)
+import           Control.Monad.Trans.Writer.Strict as Strict (WriterT,
+                                                              mapWriterT)
 
-import Data.Functor.Compose   (Compose (..))
-import Data.Functor.Product   (Product (..))
-import Data.Functor.Reverse   (Reverse (..))
-import Data.Functor.Sum       (Sum (..))
-import Data.Generics.GenericN
-import Data.Proxy             (Proxy (..))
-import Data.Kind              (Type)
+import           Data.Functor.Compose              (Compose (..))
+import           Data.Functor.Product              (Product (..))
+import           Data.Functor.Reverse              (Reverse (..))
+import           Data.Functor.Sum                  (Sum (..))
+import           Data.Generics.GenericN
+import           Data.Kind                         (Type)
+import           Data.Proxy                        (Proxy (..))
 
 -- | Functor from indexed-types to indexed-types. Instances of 'FunctorT' should
 --   satisfy the following laws:

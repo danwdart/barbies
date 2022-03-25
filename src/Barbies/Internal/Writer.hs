@@ -17,7 +17,7 @@ runSt s (St f)
 
 instance Functor (St s) where
   fmap f (St g)
-    = St $ (\(a, s') -> (f a, s')) . g
+    = St $ (Data.Bifunctor.first f) . g
   {-# INLINE fmap #-}
 
 instance Applicative (St s) where
@@ -53,4 +53,4 @@ execWr
 
 tell :: Monoid w => w -> Wr w ()
 tell w
-  = St (\s -> ((), seq s s `mappend` w))
+  = St (\s -> ((), s `mappend` w))

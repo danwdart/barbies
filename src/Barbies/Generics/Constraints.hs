@@ -1,6 +1,6 @@
-{-# LANGUAGE AllowAmbiguousTypes  #-}
-{-# LANGUAGE TypeFamilies         #-}
-{-# LANGUAGE PolyKinds            #-}
+{-# LANGUAGE AllowAmbiguousTypes #-}
+{-# LANGUAGE PolyKinds           #-}
+{-# LANGUAGE TypeFamilies        #-}
 module Barbies.Generics.Constraints
   ( GAll
   , X, Y
@@ -10,13 +10,13 @@ module Barbies.Generics.Constraints
 
 where
 
-import Barbies.Internal.Dicts(Dict (..))
+import           Barbies.Internal.Dicts (Dict (..))
 
-import Data.Functor.Product (Product (..))
-import Data.Kind            (Constraint, Type)
-import GHC.TypeLits         (Nat)
+import           Data.Functor.Product   (Product (..))
+import           Data.Kind              (Constraint, Type)
+import           GHC.TypeLits           (Nat)
 
-import Data.Generics.GenericN
+import           Data.Generics.GenericN
 
 class GConstraints n c f repbx repbf repbdf where
   gaddDicts :: GAll n c repbx => repbf x -> repbdf x
@@ -69,7 +69,7 @@ instance
                           (ldf :*: rdf)
   where
   gaddDicts (l :*: r)
-    = (gaddDicts @n @c @f @lx l) :*: (gaddDicts @n @c @f @rx r)
+    = gaddDicts @n @c @f @lx l :*: gaddDicts @n @c @f @rx r
   {-# INLINE gaddDicts #-}
 
 

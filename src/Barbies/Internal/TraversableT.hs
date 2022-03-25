@@ -1,5 +1,5 @@
-{-# LANGUAGE PolyKinds    #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE PolyKinds            #-}
+{-# LANGUAGE TypeFamilies         #-}
 {-# LANGUAGE UndecidableInstances #-}
 {-# OPTIONS_GHC -Wno-orphans #-}
 module Barbies.Internal.TraversableT
@@ -15,28 +15,28 @@ module Barbies.Internal.TraversableT
 
 where
 
-import Barbies.Generics.Traversable(GTraversable(..))
-import Barbies.Internal.FunctorT(FunctorT (..))
-import Barbies.Internal.Writer(execWr, tell)
+import           Barbies.Generics.Traversable      (GTraversable (..))
+import           Barbies.Internal.FunctorT         (FunctorT (..))
+import           Barbies.Internal.Writer           (execWr, tell)
 
-import Control.Applicative.Backwards(Backwards (..))
-import Control.Applicative.Lift(Lift(..))
-import Control.Monad.Trans.Except(ExceptT(..))
-import Control.Monad.Trans.Identity(IdentityT(..))
-import Control.Monad.Trans.Maybe(MaybeT(..))
-import Control.Monad.Trans.Writer.Lazy as Lazy (WriterT(..))
-import Control.Monad.Trans.Writer.Strict as Strict (WriterT(..))
+import           Control.Applicative.Backwards     (Backwards (..))
+import           Control.Applicative.Lift          (Lift (..))
+import           Control.Monad.Trans.Except        (ExceptT (..))
+import           Control.Monad.Trans.Identity      (IdentityT (..))
+import           Control.Monad.Trans.Maybe         (MaybeT (..))
+import           Control.Monad.Trans.Writer.Lazy   as Lazy (WriterT (..))
+import           Control.Monad.Trans.Writer.Strict as Strict (WriterT (..))
 
-import Data.Functor           (void)
-import Data.Functor.Compose   (Compose (..))
-import Data.Functor.Const     (Const (..))
-import Data.Functor.Identity  (Identity (..))
-import Data.Functor.Product   (Product (..))
-import Data.Functor.Reverse   (Reverse (..))
-import Data.Functor.Sum       (Sum (..))
-import Data.Kind              (Type)
-import Data.Generics.GenericN
-import Data.Proxy             (Proxy (..))
+import           Data.Functor                      (void)
+import           Data.Functor.Compose              (Compose (..))
+import           Data.Functor.Const                (Const (..))
+import           Data.Functor.Identity             (Identity (..))
+import           Data.Functor.Product              (Product (..))
+import           Data.Functor.Reverse              (Reverse (..))
+import           Data.Functor.Sum                  (Sum (..))
+import           Data.Generics.GenericN
+import           Data.Kind                         (Type)
+import           Data.Proxy                        (Proxy (..))
 
 -- | Indexed-functors that can be traversed from left to right. Instances should
 --   satisfy the following laws:

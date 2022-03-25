@@ -51,23 +51,23 @@ module Barbies.Internal
 
 where
 
-import qualified Barbies.Generics.Applicative as Generics
-import qualified Barbies.Generics.Bare as Generics
-import qualified Barbies.Generics.Constraints as Generics
-import qualified Barbies.Generics.Distributive as Generics
-import qualified Barbies.Generics.Functor as Generics
-import qualified Barbies.Generics.Traversable as Generics
+import qualified Barbies.Generics.Applicative   as Generics
+import qualified Barbies.Generics.Bare          as Generics
+import qualified Barbies.Generics.Constraints   as Generics
+import qualified Barbies.Generics.Distributive  as Generics
+import qualified Barbies.Generics.Functor       as Generics
+import qualified Barbies.Generics.Traversable   as Generics
 
-import qualified Barbies.Internal.ApplicativeB as Internal
-import qualified Barbies.Internal.ApplicativeT as Internal
-import qualified Barbies.Internal.BareB as Internal
-import qualified Barbies.Internal.ConstraintsB as Internal
-import qualified Barbies.Internal.ConstraintsT as Internal
+import qualified Barbies.Internal.ApplicativeB  as Internal
+import qualified Barbies.Internal.ApplicativeT  as Internal
+import qualified Barbies.Internal.BareB         as Internal
+import qualified Barbies.Internal.ConstraintsB  as Internal
+import qualified Barbies.Internal.ConstraintsT  as Internal
 import qualified Barbies.Internal.DistributiveB as Internal
 import qualified Barbies.Internal.DistributiveT as Internal
-import qualified Barbies.Internal.FunctorB as Internal
-import qualified Barbies.Internal.FunctorT as Internal
-import qualified Barbies.Internal.TraversableB as Internal
-import qualified Barbies.Internal.TraversableT as Internal
+import qualified Barbies.Internal.FunctorB      as Internal
+import qualified Barbies.Internal.FunctorT      as Internal
+import qualified Barbies.Internal.TraversableB  as Internal
+import qualified Barbies.Internal.TraversableT  as Internal
 
-import Data.Generics.GenericN
+import           Data.Generics.GenericN

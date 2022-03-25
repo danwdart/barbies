@@ -6,8 +6,8 @@ module Barbies.Internal.Wear
 
 where
 
-import GHC.TypeLits (ErrorMessage (..), TypeError)
-import Data.Generics.GenericN (Param)
+import           Data.Generics.GenericN (Param)
+import           GHC.TypeLits           (ErrorMessage (..), TypeError)
 
 data Bare
 data Covered

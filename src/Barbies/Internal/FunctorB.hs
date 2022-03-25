@@ -9,16 +9,16 @@ module Barbies.Internal.FunctorB
 
 where
 
-import Barbies.Generics.Functor (GFunctor(..))
+import           Barbies.Generics.Functor (GFunctor (..))
 
-import Data.Functor.Compose   (Compose (..))
-import Data.Functor.Const     (Const (..))
-import Data.Functor.Constant  (Constant (..))
-import Data.Functor.Product   (Product (..))
-import Data.Functor.Sum       (Sum (..))
-import Data.Generics.GenericN
-import Data.Proxy             (Proxy (..))
-import Data.Kind              (Type)
+import           Data.Functor.Compose     (Compose (..))
+import           Data.Functor.Const       (Const (..))
+import           Data.Functor.Constant    (Constant (..))
+import           Data.Functor.Product     (Product (..))
+import           Data.Functor.Sum         (Sum (..))
+import           Data.Generics.GenericN
+import           Data.Kind                (Type)
+import           Data.Proxy               (Proxy (..))
 
 -- | Barbie-types that can be mapped over. Instances of 'FunctorB' should
 --   satisfy the following laws:

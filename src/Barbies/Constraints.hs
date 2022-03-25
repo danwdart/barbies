@@ -17,5 +17,5 @@ module Barbies.Constraints
 
 where
 
-import Barbies.Internal.ConstraintsB
-import Barbies.Internal.Dicts
+import           Barbies.Internal.ConstraintsB
+import           Barbies.Internal.Dicts

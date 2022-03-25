@@ -50,11 +50,11 @@ module Data.Functor.Transformer
 
 where
 
-import qualified Barbies.Internal.ApplicativeT as Appl
-import qualified Barbies.Internal.ConstraintsT as Cons
+import qualified Barbies.Internal.ApplicativeT  as Appl
+import qualified Barbies.Internal.ConstraintsT  as Cons
 import qualified Barbies.Internal.DistributiveT as Dist
-import qualified Barbies.Internal.FunctorT as Func
-import qualified Barbies.Internal.MonadT as Mon
-import qualified Barbies.Internal.TraversableT as Trav
+import qualified Barbies.Internal.FunctorT      as Func
+import qualified Barbies.Internal.MonadT        as Mon
+import qualified Barbies.Internal.TraversableT  as Trav
 
-import qualified Data.Generics.GenericN as GenericsN
+import qualified Data.Generics.GenericN         as GenericsN

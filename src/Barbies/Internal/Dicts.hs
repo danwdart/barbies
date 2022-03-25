@@ -13,7 +13,7 @@ module Barbies.Internal.Dicts
 
 where
 
-import Data.Functor.Classes (Show1(..))
+import           Data.Functor.Classes (Show1 (..))
 
 
 -- | @'Dict' c a@ is evidence that there exists an instance of @c a@.
@@ -36,7 +36,7 @@ instance Show1 (Dict c)  where
 -- | Turn a constrained-function into an unconstrained one
 --   that uses the packed instance dictionary instead.
 requiringDict :: (c  a => r) -> (Dict c a -> r)
-requiringDict r = \Dict -> r
+requiringDict r Dict = r
 
 -- | 'ClassF' has one universal instance that makes @'ClassF' c f a@
 --   equivalent to @c (f a)@. However, we have

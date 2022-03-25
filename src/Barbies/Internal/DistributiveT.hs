@@ -1,5 +1,5 @@
-{-# LANGUAGE PolyKinds    #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE PolyKinds            #-}
+{-# LANGUAGE TypeFamilies         #-}
 {-# LANGUAGE UndecidableInstances #-}
 {-# OPTIONS_GHC -Wno-orphans #-}
 module Barbies.Internal.DistributiveT
@@ -14,29 +14,29 @@ module Barbies.Internal.DistributiveT
 
 where
 
-import Barbies.Generics.Distributive (GDistributive(..))
-import Barbies.Internal.FunctorT (FunctorT (..))
+import           Barbies.Generics.Distributive     (GDistributive (..))
+import           Barbies.Internal.FunctorT         (FunctorT (..))
 
-import Control.Applicative.Backwards(Backwards (..))
+import           Control.Applicative.Backwards     (Backwards (..))
 
-import Control.Monad.Trans.Except(ExceptT(..), runExceptT)
-import Control.Monad.Trans.Identity(IdentityT(..))
-import Control.Monad.Trans.Maybe(MaybeT(..))
-import Control.Monad.Trans.RWS.Lazy as Lazy (RWST(..))
-import Control.Monad.Trans.RWS.Strict as Strict (RWST(..))
-import Control.Monad.Trans.Reader(ReaderT(..))
-import Control.Monad.Trans.State.Lazy as Lazy (StateT(..))
-import Control.Monad.Trans.State.Strict as Strict (StateT(..))
-import Control.Monad.Trans.Writer.Lazy as Lazy (WriterT(..))
-import Control.Monad.Trans.Writer.Strict as Strict (WriterT(..))
+import           Control.Monad.Trans.Except        (ExceptT (..), runExceptT)
+import           Control.Monad.Trans.Identity      (IdentityT (..))
+import           Control.Monad.Trans.Maybe         (MaybeT (..))
+import           Control.Monad.Trans.RWS.Lazy      as Lazy (RWST (..))
+import           Control.Monad.Trans.RWS.Strict    as Strict (RWST (..))
+import           Control.Monad.Trans.Reader        (ReaderT (..))
+import           Control.Monad.Trans.State.Lazy    as Lazy (StateT (..))
+import           Control.Monad.Trans.State.Strict  as Strict (StateT (..))
+import           Control.Monad.Trans.Writer.Lazy   as Lazy (WriterT (..))
+import           Control.Monad.Trans.Writer.Strict as Strict (WriterT (..))
 
-import Data.Functor.Compose   (Compose (..))
-import Data.Functor.Identity  (Identity (..))
-import Data.Functor.Reverse   (Reverse (..))
-import Data.Generics.GenericN
-import Data.Proxy             (Proxy (..))
-import Data.Distributive
-import Data.Kind              (Type)
+import           Data.Distributive
+import           Data.Functor.Compose              (Compose (..))
+import           Data.Functor.Identity             (Identity (..))
+import           Data.Functor.Reverse              (Reverse (..))
+import           Data.Generics.GenericN
+import           Data.Kind                         (Type)
+import           Data.Proxy                        (Proxy (..))
 
 -- | A 'FunctorT' where the effects can be distributed to the fields:
 --  `tdistribute` turns an effectful way of building a transformer-type
@@ -102,7 +102,7 @@ tdecompose = tdistribute'
 
 -- | Recompose a decomposed function.
 trecompose :: FunctorT t => t ((->) a) x -> a -> t Identity x
-trecompose bfs = \a -> tmap (Identity . ($ a)) bfs
+trecompose bfs a = tmap (Identity . ($ a)) bfs
 
 -- | @'CanDeriveDistributiveT' T f g x@ is in practice a predicate about @T@ only.
 --   Intuitively, it says the the following holds  for any arbitrary @f@:
@@ -198,15 +198,15 @@ instance DistributiveT (Strict.RWST r w s) where
   {-# INLINE tdistribute #-}
 
 instance DistributiveT (ReaderT r) where
-  tdistribute fh = ReaderT $ \r -> Compose $ fmap (\h -> runReaderT h r) fh
+  tdistribute fh = ReaderT $ \r -> Compose $ fmap (`runReaderT` r) fh
   {-# INLINE tdistribute #-}
 
 instance DistributiveT (Lazy.StateT s) where
-  tdistribute fh = Lazy.StateT $ \s -> Compose $ fmap (\h -> Lazy.runStateT h s) fh
+  tdistribute fh = Lazy.StateT $ \s -> Compose $ fmap (`Lazy.runStateT` s) fh
   {-# INLINE tdistribute #-}
 
 instance DistributiveT (Strict.StateT s) where
-  tdistribute fh = Strict.StateT $ \s -> Compose $ fmap (\h -> Strict.runStateT h s) fh
+  tdistribute fh = Strict.StateT $ \s -> Compose $ fmap (`Strict.runStateT` s) fh
   {-# INLINE tdistribute #-}
 
 instance DistributiveT (Lazy.WriterT w) where

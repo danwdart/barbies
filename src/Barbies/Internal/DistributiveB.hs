@@ -13,16 +13,16 @@ module Barbies.Internal.DistributiveB
 
 where
 
-import Barbies.Internal.FunctorB (FunctorB(..))
-import Barbies.Generics.Distributive (GDistributive(..))
+import           Barbies.Generics.Distributive (GDistributive (..))
+import           Barbies.Internal.FunctorB     (FunctorB (..))
 
-import Data.Functor.Compose   (Compose (..))
-import Data.Functor.Identity  (Identity (..))
-import Data.Functor.Product   (Product (..))
-import Data.Generics.GenericN
-import Data.Proxy             (Proxy (..))
-import Data.Distributive
-import Data.Kind              (Type)
+import           Data.Distributive
+import           Data.Functor.Compose          (Compose (..))
+import           Data.Functor.Identity         (Identity (..))
+import           Data.Functor.Product          (Product (..))
+import           Data.Generics.GenericN
+import           Data.Kind                     (Type)
+import           Data.Proxy                    (Proxy (..))
 
 -- | A 'FunctorB' where the effects can be distributed to the fields:
 --  `bdistribute` turns an effectful way of building a Barbie-type
@@ -88,7 +88,7 @@ bdecompose = bdistribute'
 
 -- | Recompose a decomposed function.
 brecompose :: FunctorB b => b ((->) a) -> a -> b Identity
-brecompose bfs = \a -> bmap (Identity . ($ a)) bfs
+brecompose bfs a = bmap (Identity . ($ a)) bfs
 
 -- | @'CanDeriveDistributiveB' B f g@ is in practice a predicate about @B@ only.
 --   Intuitively, it says the the following holds  for any arbitrary @f@:

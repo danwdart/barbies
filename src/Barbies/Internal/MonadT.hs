@@ -4,20 +4,20 @@ module Barbies.Internal.MonadT
   )
 where
 
-import Barbies.Internal.FunctorT(FunctorT(..))
+import           Barbies.Internal.FunctorT     (FunctorT (..))
 
-import Control.Applicative (Alternative(..))
-import Control.Applicative.Lift as Lift (Lift(..))
-import Control.Applicative.Backwards as Backwards (Backwards(..))
-import Control.Monad (join)
-import Control.Monad.Trans.Identity(IdentityT(..))
-import Control.Monad.Trans.Reader(ReaderT(..))
+import           Control.Applicative           (Alternative (..))
+import           Control.Applicative.Backwards as Backwards (Backwards (..))
+import           Control.Applicative.Lift      as Lift (Lift (..))
+import           Control.Monad                 (join)
+import           Control.Monad.Trans.Identity  (IdentityT (..))
+import           Control.Monad.Trans.Reader    (ReaderT (..))
 
-import Data.Coerce (coerce)
-import Data.Functor.Compose (Compose(..))
-import Data.Functor.Reverse (Reverse(..))
-import Data.Functor.Product (Product(..))
-import Data.Functor.Sum (Sum(..))
+import           Data.Coerce                   (coerce)
+import           Data.Functor.Compose          (Compose (..))
+import           Data.Functor.Product          (Product (..))
+import           Data.Functor.Reverse          (Reverse (..))
+import           Data.Functor.Sum              (Sum (..))
 
 -- | Some endo-functors on indexed-types are monads. Common examples would be
 --   "functor-transformers", like 'Compose' or 'ReaderT'. In that sense, 'MonadT'
@@ -80,7 +80,7 @@ instance Monad f => MonadT (Compose f) where
   {-# INLINE tlift #-}
 
   tjoin (Compose ffga)
-    = Compose (join $ coerce <$> ffga)
+    = Compose (coerce =<< ffga)
   {-# INLINE tjoin #-}
 
 
@@ -98,7 +98,7 @@ instance MonadT (Sum f) where
   {-# INLINE tlift #-}
 
   tjoin = \case
-    InL fa -> InL fa
+    InL fa       -> InL fa
     InR (InL fa) -> InL fa
     InR (InR ga) -> InR ga
 

@@ -6,13 +6,13 @@ module Barbies.Internal.Wrappers
   ( Barbie(..)
   ) where
 
-import Barbies.Internal.ApplicativeB
-import Barbies.Internal.ConstraintsB
-import Barbies.Internal.Dicts
-import Barbies.Internal.FunctorB
-import Barbies.Internal.TraversableB
+import           Barbies.Internal.ApplicativeB
+import           Barbies.Internal.ConstraintsB
+import           Barbies.Internal.Dicts
+import           Barbies.Internal.FunctorB
+import           Barbies.Internal.TraversableB
 
-import Data.Kind (Type)
+import           Data.Kind                     (Type)
 
 
 -- | A wrapper for Barbie-types, providing useful instances.

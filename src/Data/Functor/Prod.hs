@@ -15,8 +15,8 @@
 --     ⋮
 -- @
 ----------------------------------------------------------------------------
-{-# LANGUAGE GADTs #-}
-{-# LANGUAGE PolyKinds #-}
+{-# LANGUAGE GADTs        #-}
+{-# LANGUAGE PolyKinds    #-}
 {-# LANGUAGE TypeFamilies #-}
 module Data.Functor.Prod
  {-# DEPRECATED "The module is no longer part of the main api and will be removed " #-}
@@ -40,17 +40,17 @@ module Data.Functor.Prod
 
 where
 
-import Control.Applicative(Alternative(..))
-import Data.Functor.Product(Product(..))
-import Data.Functor.Classes(Eq1(..), Ord1(..), Show1(..))
-import Data.Kind (Type)
+import           Control.Applicative  (Alternative (..))
+import           Data.Functor.Classes (Eq1 (..), Ord1 (..), Show1 (..))
+import           Data.Functor.Product (Product (..))
+import           Data.Kind            (Type)
 
 import qualified Data.Functor.Classes as FC
 
 -- | Product of n functors.
 data Prod :: [k -> Type] -> k -> Type where
   Unit :: Prod '[] a
-  Cons :: (f a) -> Prod fs a -> Prod (f ': fs) a
+  Cons :: f a -> Prod fs a -> Prod (f ': fs) a
 
 -- | The unit of the product.
 zeroTuple :: Prod '[] a
@@ -77,7 +77,7 @@ toProduct (Cons fa (Cons ga Unit))
 prod :: Prod ls a -> Prod rs a -> Prod (ls ++ rs) a
 l `prod` r =
   case l of
-    Unit -> r
+    Unit       -> r
     Cons la l' -> Cons la (l' `prod` r)
 
 -- | Type-level, poly-kinded, list-concatenation.
@@ -184,7 +184,7 @@ instance Traversable (Prod '[]) where
 -- | Inductively defined instance: @'Traversable' ('Prod' (f ': fs))@.
 instance (Traversable f, Traversable (Prod fs)) => Traversable (Prod (f ': fs)) where
   traverse f (Cons fa fas)
-    = Cons <$> (traverse f fa) <*> (traverse f fas)
+    = Cons <$> traverse f fa <*> traverse f fas
 
 -- | Inductively defined instance: @'Eq1' ('Prod' '[])@.
 instance Eq1 (Prod '[]) where

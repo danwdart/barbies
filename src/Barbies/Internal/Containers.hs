@@ -7,11 +7,11 @@ module Barbies.Internal.Containers
 
 where
 
-import Data.Functor.Barbie
-import Data.Bifunctor (first)
-import Data.Bitraversable (bitraverse)
-import Data.Functor.Const
-import GHC.Generics (Generic)
+import           Data.Bifunctor      (first)
+import           Data.Bitraversable  (bitraverse)
+import           Data.Functor.Barbie
+import           Data.Functor.Const
+import           GHC.Generics        (Generic)
 
 
 -- {{ Container ---------------------------------------------------------------
@@ -30,7 +30,7 @@ deriving instance Show (b (Const a)) => Show (Container b a)
 
 instance FunctorB b => Functor (Container b) where
   fmap f
-    = Container . (bmap (first f)) . getContainer
+    = Container . bmap (first f) . getContainer
 
 instance TraversableB b => Foldable (Container b) where
   foldMap f
@@ -72,7 +72,7 @@ deriving instance Show (b (Either  e)) => Show (ErrorContainer b e)
 
 instance FunctorB b => Functor (ErrorContainer b) where
   fmap f
-    = ErrorContainer . (bmap (first f)) . getErrorContainer
+    = ErrorContainer . bmap (first f) . getErrorContainer
 
 instance TraversableB b => Foldable (ErrorContainer b) where
   foldMap f

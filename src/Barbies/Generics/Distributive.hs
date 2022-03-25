@@ -6,13 +6,13 @@ module Barbies.Generics.Distributive
 
 where
 
-import Data.Generics.GenericN
-import Data.Proxy (Proxy (..))
+import           Data.Generics.GenericN
+import           Data.Proxy             (Proxy (..))
 
-import Data.Functor.Compose   (Compose (..))
-import Data.Distributive      (Distributive(..))
+import           Data.Distributive      (Distributive (..))
+import           Data.Functor.Compose   (Compose (..))
 
-import GHC.TypeLits (Nat)
+import           GHC.TypeLits           (Nat)
 
 class (Functor f) => GDistributive (n :: Nat) f repbg repbfg where
   gdistribute :: Proxy n -> f (repbg x) -> repbfg x
@@ -65,7 +65,7 @@ instance
   ) =>
   GDistributive n f (Rec (P n g a) (g a)) (Rec (P n (Compose f g) a) (Compose f g a))
   where
-  gdistribute _ = Rec . K1 . Compose . id . fmap (unK1 . unRec)
+  gdistribute _ = Rec . K1 . Compose . fmap (unK1 . unRec)
   {-# INLINE gdistribute #-}
 
 instance

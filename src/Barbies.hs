@@ -276,10 +276,10 @@ module Barbies
   , Trivial.Unit (..)
   ) where
 
-import Barbies.Internal.Containers as Containers
+import           Barbies.Internal.Containers as Containers
 
-import Data.Functor.Barbie
-import Data.Functor.Transformer
-import Barbies.Bi
-import qualified Barbies.Internal.Trivial as Trivial
-import qualified Barbies.Internal.Wrappers as Wrappers
+import           Barbies.Bi
+import qualified Barbies.Internal.Trivial    as Trivial
+import qualified Barbies.Internal.Wrappers   as Wrappers
+import           Data.Functor.Barbie
+import           Data.Functor.Transformer

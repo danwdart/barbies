@@ -55,25 +55,27 @@ module Data.Barbie
 
 where
 
-import Barbies.Internal.ConstraintsB (AllBF, ConstraintsB (..), bmapC, btraverseC, bmempty)
+import           Barbies.Internal.ConstraintsB (AllBF, ConstraintsB (..), bmapC,
+                                                bmempty, btraverseC)
 
-import Barbies.Internal.FunctorB(FunctorB(..))
-import Barbies.Internal.Wrappers(Barbie(..))
 import qualified Barbies.Internal.ApplicativeB as App
+import           Barbies.Internal.FunctorB     (FunctorB (..))
+import           Barbies.Internal.Wrappers     (Barbie (..))
 
-import Data.Barbie.Internal.Product(ProductB(..), CanDeriveProductB, GProductB(..))
-import Data.Barbie.Internal.ProductC(ProductBC(..), CanDeriveProductBC,  GProductBC(..), buniqC)
+import           Data.Barbie.Internal.Product  (CanDeriveProductB,
+                                                GProductB (..), ProductB (..))
+import           Data.Barbie.Internal.ProductC (CanDeriveProductBC,
+                                                GProductBC (..), ProductBC (..),
+                                                buniqC)
 
-import Barbies.Internal.TraversableB
-  ( TraversableB(..)
-  , bsequence, bsequence'
-  , bfoldMap, btraverse_
-  )
-import qualified Barbies.Internal.Trivial as Trivial
+import           Barbies.Internal.TraversableB (TraversableB (..), bfoldMap,
+                                                bsequence, bsequence',
+                                                btraverse_)
+import qualified Barbies.Internal.Trivial      as Trivial
 
-import Data.Functor.Product (Product(Pair))
-import Data.Functor.Prod (Prod(..), oneTuple, prod)
-import Data.Generics.GenericN (Rec(..))
+import           Data.Functor.Prod             (Prod (..), oneTuple, prod)
+import           Data.Functor.Product          (Product (Pair))
+import           Data.Generics.GenericN        (Rec (..))
 
 
 {-# DEPRECATED (/*/), (/*) "Use bzipWith2, bzipWith3, etc" #-}

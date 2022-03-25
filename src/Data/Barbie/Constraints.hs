@@ -17,6 +17,6 @@ module Data.Barbie.Constraints
 
 where
 
-import Barbies.Internal.ConstraintsB
-import Barbies.Internal.Dicts
-import Data.Barbie.Internal.ProductC
+import           Barbies.Internal.ConstraintsB
+import           Barbies.Internal.Dicts
+import           Data.Barbie.Internal.ProductC

@@ -6,16 +6,16 @@ module Barbies.Internal.Trivial
 
 where
 
-import Barbies.Internal.ApplicativeB(ApplicativeB(..))
-import Barbies.Internal.ConstraintsB(ConstraintsB(..))
-import Barbies.Internal.FunctorB(FunctorB(..))
-import Barbies.Internal.DistributiveB(DistributiveB(..))
-import Barbies.Internal.TraversableB(TraversableB(..))
+import           Barbies.Internal.ApplicativeB  (ApplicativeB (..))
+import           Barbies.Internal.ConstraintsB  (ConstraintsB (..))
+import           Barbies.Internal.DistributiveB (DistributiveB (..))
+import           Barbies.Internal.FunctorB      (FunctorB (..))
+import           Barbies.Internal.TraversableB  (TraversableB (..))
 
-import Data.Data (Data(..))
-import Data.Kind (Type)
-import Data.Typeable (Typeable)
-import GHC.Generics (Generic)
+import           Data.Data                      (Data (..))
+import           Data.Kind                      (Type)
+import           Data.Typeable                  (Typeable)
+import           GHC.Generics                   (Generic)
 
 ---------------------------------------------------
 -- Trivial Barbies

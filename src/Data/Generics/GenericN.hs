@@ -31,11 +31,11 @@ module Data.Generics.GenericN
   , module GHC.Generics
   ) where
 
-import Data.Kind
-import Data.Proxy (Proxy)
-import GHC.Generics
-import GHC.TypeLits
-import Data.Coerce
+import           Data.Coerce
+import           Data.Kind
+import           Data.Proxy   (Proxy)
+import           GHC.Generics
+import           GHC.TypeLits
 
 data family Param (n :: Nat) (a :: k) :: k
 
