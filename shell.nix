@@ -1,9 +1,1 @@
-{ pkgs ? import <nixpkgs> {} }:
-
-with pkgs;
-
-mkShell {
-  buildInputs = [
-    stack
-  ];
-}
+(import ./default.nix {}).shell
