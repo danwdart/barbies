@@ -17,7 +17,7 @@ runSt s (St f)
 
 instance Functor (St s) where
   fmap f (St g)
-    = St $ (Data.Bifunctor.first f) . g
+    = St $ Data.Bifunctor.first f . g
   {-# INLINE fmap #-}
 
 instance Applicative (St s) where

@@ -268,8 +268,7 @@ instance Applicative f => ApplicativeT (Compose f) where
   {-# INLINE tprod #-}
 
 instance ApplicativeT Reverse where
-  tpure fa
-    = Reverse fa
+  tpure = Reverse
   {-# INLINE tpure #-}
 
   tprod (Reverse fa) (Reverse ga)
@@ -278,8 +277,7 @@ instance ApplicativeT Reverse where
 
 
 instance Alternative f => ApplicativeT (Product f) where
-  tpure fa
-    = Pair empty fa
+  tpure = Pair empty
   {-# INLINE tpure #-}
 
   tprod (Pair fl gl) (Pair fr gr)
@@ -287,8 +285,7 @@ instance Alternative f => ApplicativeT (Product f) where
   {-# INLINE tprod #-}
 
 instance Alternative f => ApplicativeT (Sum f) where
-  tpure fa
-    = InR fa
+  tpure = InR
   {-# INLINE tpure #-}
 
   tprod l r

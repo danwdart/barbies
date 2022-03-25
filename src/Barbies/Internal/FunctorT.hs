@@ -18,9 +18,9 @@ import           Control.Applicative.Lift          (Lift, mapLift)
 import           Control.Monad.Trans.Except        (ExceptT, mapExceptT)
 import           Control.Monad.Trans.Identity      (IdentityT, mapIdentityT)
 import           Control.Monad.Trans.Maybe         (MaybeT, mapMaybeT)
+import           Control.Monad.Trans.Reader        (ReaderT, mapReaderT)
 import           Control.Monad.Trans.RWS.Lazy      as Lazy (RWST, mapRWST)
 import           Control.Monad.Trans.RWS.Strict    as Strict (RWST, mapRWST)
-import           Control.Monad.Trans.Reader        (ReaderT, mapReaderT)
 import           Control.Monad.Trans.State.Lazy    as Lazy (StateT, mapStateT)
 import           Control.Monad.Trans.State.Strict  as Strict (StateT, mapStateT)
 import           Control.Monad.Trans.Writer.Lazy   as Lazy (WriterT, mapWriterT)
@@ -153,45 +153,45 @@ instance FunctorT Reverse where
   {-# INLINE tmap #-}
 
 instance FunctorT Lift where
-  tmap h = mapLift h
+  tmap = mapLift
   {-# INLINE tmap #-}
 
 instance FunctorT (ExceptT e) where
-  tmap h = mapExceptT h
+  tmap = mapExceptT
   {-# INLINE tmap #-}
 
 instance FunctorT IdentityT where
-  tmap h = mapIdentityT h
+  tmap = mapIdentityT
   {-# INLINE tmap #-}
 
 instance FunctorT MaybeT where
-  tmap h = mapMaybeT h
+  tmap = mapMaybeT
   {-# INLINE tmap #-}
 
 instance FunctorT (Lazy.RWST r w s) where
-  tmap h = Lazy.mapRWST h
+  tmap = Lazy.mapRWST
   {-# INLINE tmap #-}
 
 instance FunctorT (Strict.RWST r w s) where
-  tmap h = Strict.mapRWST h
+  tmap = Strict.mapRWST
   {-# INLINE tmap #-}
 
 instance FunctorT (ReaderT r) where
-  tmap h = mapReaderT h
+  tmap = mapReaderT
   {-# INLINE tmap #-}
 
 instance FunctorT (Lazy.StateT s) where
-  tmap h = Lazy.mapStateT h
+  tmap = Lazy.mapStateT
   {-# INLINE tmap #-}
 
 instance FunctorT (Strict.StateT s) where
-  tmap h = Strict.mapStateT h
+  tmap = Strict.mapStateT
   {-# INLINE tmap #-}
 
 instance FunctorT (Lazy.WriterT w) where
-  tmap h = Lazy.mapWriterT h
+  tmap = Lazy.mapWriterT
   {-# INLINE tmap #-}
 
 instance FunctorT (Strict.WriterT w) where
-  tmap h = Strict.mapWriterT h
+  tmap = Strict.mapWriterT
   {-# INLINE tmap #-}
