@@ -6,15 +6,16 @@ module Legacy.Spec.Constraints
 
 where
 
-import Legacy.Clothes(F)
-import Data.Barbie(bmap, ConstraintsB(..), AllBF, ProductBC(..))
-import Data.Barbie.Constraints(ClassF, Dict)
+import           Data.Barbie             (AllBF, ConstraintsB (..),
+                                          ProductBC (..), bmap)
+import           Data.Barbie.Constraints (ClassF, Dict)
+import           Legacy.Clothes          (F)
 
-import Data.Functor.Product (Product(Pair))
-import Data.Typeable(Typeable, Proxy(..), typeRep)
+import           Data.Functor.Product    (Product (Pair))
+import           Data.Typeable           (Proxy (..), Typeable, typeRep)
 
-import Test.Tasty(TestTree)
-import Test.Tasty.QuickCheck(Arbitrary(..), testProperty, (===))
+import           Test.Tasty              (TestTree)
+import           Test.Tasty.QuickCheck   (Arbitrary (..), testProperty, (===))
 
 
 lawAddDictPrj

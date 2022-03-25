@@ -5,15 +5,15 @@ module Spec.Constraints
 
 where
 
-import Clothes(F)
-import Barbies.Constraints(ClassF, Dict)
-import Data.Functor.Barbie(bmap, ConstraintsB(..), AllBF)
+import           Barbies.Constraints   (ClassF, Dict)
+import           Clothes               (F)
+import           Data.Functor.Barbie   (AllBF, ConstraintsB (..), bmap)
 
-import Data.Functor.Product (Product(Pair))
-import Data.Typeable(Typeable, Proxy(..), typeRep)
+import           Data.Functor.Product  (Product (Pair))
+import           Data.Typeable         (Proxy (..), Typeable, typeRep)
 
-import Test.Tasty(TestTree)
-import Test.Tasty.QuickCheck(Arbitrary(..), testProperty, (===))
+import           Test.Tasty            (TestTree)
+import           Test.Tasty.QuickCheck (Arbitrary (..), testProperty, (===))
 
 
 lawAddDictPrj

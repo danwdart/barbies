@@ -5,15 +5,16 @@ module Spec.Applicative
 
 where
 
-import Clothes(F(..), G, H, I, FG(..), HI(..), NatTransf(..))
+import           Clothes               (F (..), FG (..), G, H, HI (..), I,
+                                        NatTransf (..))
 
-import Data.Functor.Barbie(FunctorB(..), ApplicativeB(..))
+import           Data.Functor.Barbie   (ApplicativeB (..), FunctorB (..))
 
-import Data.Functor.Product(Product(Pair))
-import Data.Typeable(Typeable, Proxy(..), typeRep)
+import           Data.Functor.Product  (Product (Pair))
+import           Data.Typeable         (Proxy (..), Typeable, typeRep)
 
-import Test.Tasty(TestTree, testGroup)
-import Test.Tasty.QuickCheck(Arbitrary(..), testProperty, (===))
+import           Test.Tasty            (TestTree, testGroup)
+import           Test.Tasty.QuickCheck (Arbitrary (..), testProperty, (===))
 
 laws
   :: forall b

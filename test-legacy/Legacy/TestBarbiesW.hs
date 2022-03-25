@@ -1,5 +1,5 @@
 {-# OPTIONS_GHC -O0 #-}
-{-# LANGUAGE DeriveAnyClass       #-}
+
 {-# LANGUAGE FlexibleContexts     #-}
 {-# LANGUAGE FlexibleInstances    #-}
 {-# LANGUAGE TypeFamilies         #-}
@@ -22,13 +22,13 @@ module Legacy.TestBarbiesW
 
 where
 
-import Data.Barbie
-import Data.Barbie.Bare
+import           Data.Barbie
+import           Data.Barbie.Bare
 
-import Data.Kind(Type)
-import Data.Typeable
-import GHC.Generics
-import Test.Tasty.QuickCheck
+import           Data.Kind             (Type)
+import           Data.Typeable
+import           GHC.Generics
+import           Test.Tasty.QuickCheck
 
 ----------------------------------------------------
 -- Product Barbies

@@ -1,4 +1,4 @@
-{-# LANGUAGE DeriveAnyClass       #-}
+
 {-# LANGUAGE FlexibleContexts     #-}
 {-# LANGUAGE TypeFamilies         #-}
 {-# LANGUAGE UndecidableInstances #-}
@@ -27,12 +27,12 @@ module Legacy.TestBarbies
 
 where
 
-import Data.Barbie
+import           Data.Barbie
 
-import Data.Kind(Type)
-import Data.Typeable
-import GHC.Generics
-import Test.Tasty.QuickCheck
+import           Data.Kind             (Type)
+import           Data.Typeable
+import           GHC.Generics
+import           Test.Tasty.QuickCheck
 
 ----------------------------------------------------
 -- Product Barbies
@@ -295,7 +295,7 @@ instance ProductBC (ParX a)
 data HKB b
   = HKB
       { hkb1 :: b Maybe
-      , khb2 :: b ([])
+      , khb2 :: b []
       }
   deriving (Generic, Typeable)
 

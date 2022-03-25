@@ -1,4 +1,4 @@
-{-# LANGUAGE DeriveAnyClass       #-}
+
 {-# LANGUAGE FlexibleContexts     #-}
 {-# LANGUAGE TypeFamilies         #-}
 {-# LANGUAGE UndecidableInstances #-}
@@ -31,13 +31,13 @@ module TestBarbies
 where
 
 import qualified Barbies
-import Data.Functor.Barbie
-import Data.Distributive
+import           Data.Distributive
+import           Data.Functor.Barbie
 
-import Data.Kind(Type)
-import Data.Typeable
-import GHC.Generics
-import Test.Tasty.QuickCheck
+import           Data.Kind             (Type)
+import           Data.Typeable
+import           GHC.Generics
+import           Test.Tasty.QuickCheck
 
 ----------------------------------------------------
 -- Product Barbies
@@ -346,7 +346,7 @@ instance (Arbitrary (g Int), Arbitrary (f Int)) => Arbitrary (ParF g f) where
 data HKB b
   = HKB
       { hkb1 :: b Maybe
-      , khb2 :: b ([])
+      , khb2 :: b []
       }
   deriving (Generic, Typeable)
 

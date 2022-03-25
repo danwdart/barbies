@@ -1,5 +1,5 @@
 {-# LANGUAGE AllowAmbiguousTypes  #-}
-{-# LANGUAGE DeriveAnyClass       #-}
+
 {-# LANGUAGE FlexibleContexts     #-}
 {-# LANGUAGE PolyKinds            #-}
 {-# LANGUAGE TypeFamilies         #-}
@@ -34,14 +34,14 @@ module TestBiBarbies
 
 where
 
-import Barbies
-import Data.Distributive
+import           Barbies
+import           Data.Distributive
 import qualified TestBarbies
 
-import Data.Kind(Type)
-import Data.Typeable
-import GHC.Generics
-import Test.Tasty.QuickCheck
+import           Data.Kind             (Type)
+import           Data.Typeable
+import           GHC.Generics
+import           Test.Tasty.QuickCheck
 
 instance Arbitrary (b r l) => Arbitrary (Barbies.Flip b l r) where
   arbitrary = Barbies.Flip <$> arbitrary
@@ -332,7 +332,7 @@ instance (Arbitrary a, Arbitrary (f a)) => Arbitrary (ParX a f x) where
 data HKB b x
   = HKB
       { hkb1 :: b Maybe
-      , khb2 :: b ([])
+      , khb2 :: b []
       }
   deriving (Generic, Typeable)
 

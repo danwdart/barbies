@@ -1,26 +1,28 @@
-import Test.Tasty (defaultMain, testGroup)
-import Test.Tasty.HUnit (testCase, (@?=))
+import           Test.Tasty            (defaultMain, testGroup)
+import           Test.Tasty.HUnit      (testCase, (@?=))
 
-import qualified Spec.Bare as Bare
-import qualified Spec.Constraints as Constraints
-import qualified Spec.Functor as Functor
-import qualified Spec.Applicative as Applicative
-import qualified Spec.Traversable as Traversable
-import qualified Spec.Distributive as Distributive
-import qualified Spec.Wrapper as Wrapper
+import qualified Spec.Applicative      as Applicative
+import qualified Spec.Bare             as Bare
+import qualified Spec.Constraints      as Constraints
+import qualified Spec.Distributive     as Distributive
+import qualified Spec.Functor          as Functor
+import qualified Spec.Traversable      as Traversable
+import qualified Spec.Wrapper          as Wrapper
 
-import TestBarbies
-import TestBarbiesW
-import qualified TestBiBarbies as Bi
+import           TestBarbies
+import           TestBarbiesW
+import qualified TestBiBarbies         as Bi
 
-import Barbies(Flip)
-import Barbies.Bare(Covered)
-import Control.Applicative ( liftA2 )
-import Data.Functor.Barbie(bfoldMap, bmapC, btraverseC, bpureC, bfoldMapC, bzipWithC, bzipWith3C, bzipWith4C)
-import Data.Functor.Const    (Const (..))
-import Data.Functor.Identity (Identity (..))
-import Data.Monoid           (Sum (..))
-import Data.Typeable ( Typeable, typeOf )
+import           Barbies               (Flip)
+import           Barbies.Bare          (Covered)
+import           Control.Applicative   (liftA2)
+import           Data.Functor.Barbie   (bfoldMap, bfoldMapC, bmapC, bpureC,
+                                        btraverseC, bzipWith3C, bzipWith4C,
+                                        bzipWithC)
+import           Data.Functor.Const    (Const (..))
+import           Data.Functor.Identity (Identity (..))
+import           Data.Monoid           (Sum (..))
+import           Data.Typeable         (Typeable, typeOf)
 
 main :: IO ()
 main

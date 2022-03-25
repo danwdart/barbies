@@ -3,13 +3,13 @@ module Legacy.Spec.Bare ( laws )
 
 where
 
-import Data.Barbie.Bare (BareB(..), Covered)
-import Data.Functor.Identity
+import           Data.Barbie.Bare      (BareB (..), Covered)
+import           Data.Functor.Identity
 
-import Data.Typeable (Typeable, typeRep, Proxy(..))
+import           Data.Typeable         (Proxy (..), Typeable, typeRep)
 
-import Test.Tasty(testGroup, TestTree)
-import Test.Tasty.QuickCheck(Arbitrary(..), testProperty, (===))
+import           Test.Tasty            (TestTree, testGroup)
+import           Test.Tasty.QuickCheck (Arbitrary (..), testProperty, (===))
 
 laws
   :: forall b

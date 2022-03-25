@@ -1,21 +1,21 @@
-import Test.Tasty (defaultMain, testGroup)
-import Test.Tasty.HUnit (testCase, (@?=))
+import           Test.Tasty              (defaultMain, testGroup)
+import           Test.Tasty.HUnit        (testCase, (@?=))
 
-import qualified Legacy.Spec.Bare as Bare
+import qualified Legacy.Spec.Bare        as Bare
 import qualified Legacy.Spec.Constraints as Constraints
-import qualified Legacy.Spec.Functor as Functor
-import qualified Legacy.Spec.Product as Product
+import qualified Legacy.Spec.Functor     as Functor
+import qualified Legacy.Spec.Product     as Product
 import qualified Legacy.Spec.Traversable as Traversable
-import qualified Legacy.Spec.Wrapper as Wrapper
+import qualified Legacy.Spec.Wrapper     as Wrapper
 
-import Legacy.TestBarbies
-import Legacy.TestBarbiesW
+import           Legacy.TestBarbies
+import           Legacy.TestBarbiesW
 
-import Data.Barbie           (bfoldMap, bmapC, btraverseC, buniqC)
-import Data.Barbie.Bare      (Covered)
-import Data.Functor.Const    (Const (..))
-import Data.Functor.Identity (Identity (..))
-import Data.Monoid           (Sum (..))
+import           Data.Barbie             (bfoldMap, bmapC, btraverseC, buniqC)
+import           Data.Barbie.Bare        (Covered)
+import           Data.Functor.Const      (Const (..))
+import           Data.Functor.Identity   (Identity (..))
+import           Data.Monoid             (Sum (..))
 
 main :: IO ()
 main

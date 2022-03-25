@@ -3,17 +3,18 @@ module Legacy.Spec.Traversable ( laws )
 
 where
 
-import Legacy.Clothes (F, G, H, FG(..), GH(..), NatTransf(..))
+import           Legacy.Clothes        (F, FG (..), G, GH (..), H,
+                                        NatTransf (..))
 
-import Data.Barbie (TraversableB(..))
+import           Data.Barbie           (TraversableB (..))
 
-import Data.Functor.Compose (Compose(..))
-import Data.Functor.Identity (Identity(..))
-import Data.Maybe (maybeToList)
-import Data.Typeable (Typeable, typeRep, Proxy(..))
+import           Data.Functor.Compose  (Compose (..))
+import           Data.Functor.Identity (Identity (..))
+import           Data.Maybe            (maybeToList)
+import           Data.Typeable         (Proxy (..), Typeable, typeRep)
 
-import Test.Tasty(testGroup, TestTree)
-import Test.Tasty.QuickCheck(Arbitrary(..), testProperty, (===))
+import           Test.Tasty            (TestTree, testGroup)
+import           Test.Tasty.QuickCheck (Arbitrary (..), testProperty, (===))
 
 laws
   :: forall b

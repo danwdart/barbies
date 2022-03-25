@@ -3,14 +3,14 @@ module Legacy.Spec.Functor ( laws )
 
 where
 
-import Legacy.Clothes (F, H, FG(..), GH(..), NatTransf(..))
+import           Legacy.Clothes        (F, FG (..), GH (..), H, NatTransf (..))
 
-import Data.Barbie (FunctorB(..))
+import           Data.Barbie           (FunctorB (..))
 
-import Data.Typeable (Typeable, typeRep, Proxy(..))
+import           Data.Typeable         (Proxy (..), Typeable, typeRep)
 
-import Test.Tasty(testGroup, TestTree)
-import Test.Tasty.QuickCheck(Arbitrary(..), testProperty, (===))
+import           Test.Tasty            (TestTree, testGroup)
+import           Test.Tasty.QuickCheck (Arbitrary (..), testProperty, (===))
 
 laws
   :: forall b

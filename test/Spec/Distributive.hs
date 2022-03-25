@@ -1,20 +1,20 @@
 {-# LANGUAGE AllowAmbiguousTypes #-}
-{-# LANGUAGE ConstraintKinds #-}
+{-# LANGUAGE ConstraintKinds     #-}
 module Spec.Distributive ( laws )
 
 where
 
-import Clothes (F, G, H, GH(..), NatTransf(..))
+import           Clothes               (F, G, GH (..), H, NatTransf (..))
 
-import Data.Functor.Identity (Identity(..))
-import Data.Functor.Compose (Compose (..))
+import           Data.Functor.Compose  (Compose (..))
+import           Data.Functor.Identity (Identity (..))
 
-import Data.Functor.Barbie (FunctorB(..), DistributiveB(..))
+import           Data.Functor.Barbie   (DistributiveB (..), FunctorB (..))
 
-import Data.Typeable (Typeable, typeRep, Proxy(..))
+import           Data.Typeable         (Proxy (..), Typeable, typeRep)
 
-import Test.Tasty(testGroup, TestTree)
-import Test.Tasty.QuickCheck(Arbitrary(..), testProperty, (===))
+import           Test.Tasty            (TestTree, testGroup)
+import           Test.Tasty.QuickCheck (Arbitrary (..), testProperty, (===))
 
 type IsDomain a = (Arbitrary a, Show a)
 type IsRange a = (Eq a, Show a)

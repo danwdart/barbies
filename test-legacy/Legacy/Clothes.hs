@@ -3,14 +3,14 @@ module Legacy.Clothes
 
 where
 
-import Prelude hiding ((.), id)
+import           Prelude               hiding (id, (.))
 
-import Control.Category
-import Data.Functor.Identity
-import qualified Data.List.NonEmpty as NE
-import Data.Typeable
+import           Control.Category
+import           Data.Functor.Identity
+import qualified Data.List.NonEmpty    as NE
+import           Data.Typeable
 
-import Test.Tasty.QuickCheck
+import           Test.Tasty.QuickCheck
 
 data UnitF a = UnitF deriving(Eq, Show, Typeable)
 
@@ -56,7 +56,7 @@ instance Arbitrary a => Arbitrary (I a) where
     ]
 
 newtype NatTransf f g
-  = NatTransf {applyNat :: (forall a . f a -> g a)}
+  = NatTransf {applyNat :: forall a . f a -> g a}
 
 
 instance Category NatTransf where

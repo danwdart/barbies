@@ -3,15 +3,15 @@ module Legacy.Spec.Product ( laws, uniqLaws )
 
 where
 
-import Legacy.Clothes(F, G)
+import           Legacy.Clothes        (F, G)
 
-import Data.Barbie(FunctorB(..), ProductB(..))
+import           Data.Barbie           (FunctorB (..), ProductB (..))
 
-import Data.Functor.Product(Product(Pair))
-import Data.Typeable(Typeable, Proxy(..), typeRep)
+import           Data.Functor.Product  (Product (Pair))
+import           Data.Typeable         (Proxy (..), Typeable, typeRep)
 
-import Test.Tasty(TestTree)
-import Test.Tasty.QuickCheck(Arbitrary(..), testProperty, (===))
+import           Test.Tasty            (TestTree)
+import           Test.Tasty.QuickCheck (Arbitrary (..), testProperty, (===))
 
 
 laws

@@ -3,14 +3,14 @@ module Spec.Functor ( laws )
 
 where
 
-import Clothes (F, H, FG(..), GH(..), NatTransf(..))
+import           Clothes               (F, FG (..), GH (..), H, NatTransf (..))
 
-import Data.Functor.Barbie (FunctorB(..))
+import           Data.Functor.Barbie   (FunctorB (..))
 
-import Data.Typeable (Typeable, typeRep, Proxy(..))
+import           Data.Typeable         (Proxy (..), Typeable, typeRep)
 
-import Test.Tasty(testGroup, TestTree)
-import Test.Tasty.QuickCheck(Arbitrary(..), testProperty, (===))
+import           Test.Tasty            (TestTree, testGroup)
+import           Test.Tasty.QuickCheck (Arbitrary (..), testProperty, (===))
 
 laws
   :: forall b
